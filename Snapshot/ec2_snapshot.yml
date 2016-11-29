@@ -5,7 +5,7 @@
   
   tasks: 
     - name: Installs PIP needed for BOTO
-      python get-pip.py
+      python: get-pip.py
       
     - name: Install BOTO
       pip: name=boto3
