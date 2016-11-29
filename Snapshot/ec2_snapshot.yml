@@ -4,15 +4,14 @@
   become: yes
   
   tasks: 
-    - name: Add repository
-      yum_repository:
-        name: epel
-        description: EPEL YUM repo
-        baseurl: http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
-        enabled: yes
- 
-    - name: Update yum
-      command: yum update
+#    - name: Add repository
+#      yum_repository:
+#        name: epel
+#        description: EPEL YUM repo
+#        baseurl: http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
+#        enabled: yes
+    - name: Add repo
+      yum: name=http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm state=present
       
     - name: Install PIP needed for BOTO
       yum: name=pip enablerepo=epel update_cache=yes state=present
