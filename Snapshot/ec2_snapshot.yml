@@ -19,8 +19,19 @@
     - name: Install BOTO
       pip: name=boto3
       
-    - name: Take volume snapshot in AWS
+#    - name: Take volume snapshot in AWS
+#      ec2_snapshot:
+#        volume_id: vol-07de2f7eeede26afd
+#        description: snapshot of MSURHEL1 taken 11/28/2016 08:12
+        
+        
+    - name: Snapshot the instance.
       ec2_snapshot:
+        aws_secret_key: "{{pkey}}"
+        aws_access_key: "{{akey}}"
+        region: us-east-1
+        instance_id: i-0080a6f836de932ba
         volume_id: vol-07de2f7eeede26afd
-        description: snapshot of MSURHEL1 taken 11/28/2016 08:12
+        description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
+
        
