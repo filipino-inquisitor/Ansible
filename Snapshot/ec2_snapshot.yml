@@ -4,6 +4,11 @@
   become: yes
   
   tasks: 
+    - name: Add repository
+      yum_repository:
+        name: epel
+        description: EPEL YUM repo
+        baseurl: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
   
     - name: Install PIP needed for BOTO
       yum: name=python-pip state=present
