@@ -9,7 +9,6 @@
         name: epel
         description: EPEL YUM repo
         baseurl: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-        s3_enabled: yes
         enabled: yes
   
     - name: Install PIP needed for BOTO
