@@ -6,7 +6,7 @@
   tasks: 
   
     - name: Install PIP needed for BOTO
-      yum: name=python-pip state=latest
+      yum: name=python-pip state=present
   
     - name: Install BOTO
       pip: name=boto3
