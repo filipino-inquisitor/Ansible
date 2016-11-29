@@ -11,6 +11,9 @@
         baseurl: http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm
         enabled: yes
  
+    - name: Update yum
+      command: yum update
+      
     - name: Install PIP needed for BOTO
       yum: name=pip enablerepo=epel update_cache=yes state=present
         
