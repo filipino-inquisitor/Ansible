@@ -5,7 +5,7 @@
   
   tasks: 
     - name: Installs PIP needed for BOTO
-      easy_install: name=pip state=latest
+      python get-pip.py
       
     - name: Install BOTO
       pip: name=boto3
