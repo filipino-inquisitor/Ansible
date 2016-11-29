@@ -1,12 +1,13 @@
 ---
 - name: Take volume snapshot in AWS
   hosts: all
+  sudo: yes
   become: yes
   
   tasks: 
   
     - name: Install PIP needed for BOTO
-      yum: name=https://pypi.python.org/pypi/pip/9.0.1
+      yum: name=python-pip state=latest
   
     - name: Install BOTO
       pip: name=boto3
