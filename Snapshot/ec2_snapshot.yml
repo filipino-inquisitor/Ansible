@@ -4,7 +4,9 @@
   become: yes
   
   tasks: 
+    - easy_install: name=pip state=latest
     - name: Take volume snapshot in AWS
       ec2_snapshot:
         volume_id: vol-07de2f7eeede26afd
         description: snapshot of MSURHEL1 taken 11/28/2016 08:12
+       
