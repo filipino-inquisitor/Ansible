@@ -14,7 +14,7 @@
       yum: name=http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm state=present
       
     - name: Install PIP needed for BOTO
-      yum: name=pip enablerepo=epel update_cache=yes state=present
+      yum: name=pip update_cache=yes state=present
         
     - name: Install BOTO
       pip: name=boto3
