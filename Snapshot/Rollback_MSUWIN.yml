@@ -1,0 +1,24 @@
+---
+
+    - name: Detach the old volume 
+        ec2_vol: 
+          region: us-east-1a 
+          id: vol-0fd39a57fccae6e2a
+          instance: None 
+          register: detach_vol 
+
+    - name: Creating a Volume from a snapshot 
+        ec2_vol: 
+          snapshot:  
+          region: us-east-1a
+          volume_size: 60 
+          instance: i-04cc3194d864eb0c0
+          register: ec2_vol 
+          tags: attach 
+
+    - name: Attach the Created volume to an instance 
+        ec2_vol: 
+          instance: i-04cc3194d864eb0c0
+          id: vol-0fd39a57fccae6e2a
+          device_name: /dev/sda1 
+delete_on_termination: yes
