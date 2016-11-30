@@ -1,0 +1,20 @@
+---
+- name: Take volume snapshot in AWS
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Add repo
+      yum: name=http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm state=present
+
+    - name: Install BOTO
+      pip: name=boto
+
+    - name: Snapshot the instance.
+      ec2_snapshot:
+        aws_secret_key: "{{pkey}}"
+        aws_access_key: "{{akey}}"
+        region: us-east-1
+        volume_id: vol-0fd39a57fccae6e2a
+        description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
