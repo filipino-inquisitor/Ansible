@@ -27,4 +27,5 @@
 #        instance_id: i-0080a6f836de932ba
         volume_id: vol-07de2f7eeede26afd
         description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
-        device_name: "{{ec2_tags.tags.Name}}"
+#        device_name: "{{ec2_tags.tags.Name}}"
+#        ec2_tags:
