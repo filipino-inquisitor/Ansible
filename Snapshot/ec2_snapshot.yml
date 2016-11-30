@@ -2,8 +2,8 @@
 - name: Take volume snapshot in AWS
   hosts: all
   become: yes
-  
-  tasks: 
+
+  tasks:
 #    - name: Add repository
 #      yum_repository:
 #        name: epel
@@ -12,13 +12,13 @@
 #        enabled: yes
     - name: Add repo
       yum: name=http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-8.noarch.rpm state=present
-      
+
 #    - name: Install PIP needed for BOTO
 #      yum: name=pip update_cache=yes state=present
-        
+
     - name: Install BOTO
-      pip: name=boto        
-        
+      pip: name=boto
+
     - name: Snapshot the instance.
       ec2_snapshot:
         aws_secret_key: "{{pkey}}"
@@ -27,5 +27,4 @@
 #        instance_id: i-0080a6f836de932ba
         volume_id: vol-07de2f7eeede26afd
         description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
-
-       
+        device_name: {{ec2_tags.tags.Name}}
