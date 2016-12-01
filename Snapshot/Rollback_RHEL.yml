@@ -9,7 +9,7 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
-        volume_id: vol-07de2f7eeede26afd
+        id: vol-07de2f7eeede26afd
         instance: None 
 #        register: detach_vol 
 
@@ -29,6 +29,6 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         instance: i-0080a6f836de932ba
-        volume_id: vol-07de2f7eeede26afd
+        id: vol-07de2f7eeede26afd
         device_name: /dev/sda1 
         delete_on_termination: yes
