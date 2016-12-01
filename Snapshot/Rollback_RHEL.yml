@@ -29,6 +29,7 @@
       ec2_vol: 
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
+        region: us-east-1
         instance: i-0080a6f836de932ba
         id: "{{ ec2_vol.volume_id }}"
         device_name: /dev/sda1 
