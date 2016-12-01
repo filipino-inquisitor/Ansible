@@ -9,7 +9,7 @@
         region: us-east-1a 
         id: vol-07de2f7eeede26afd
         instance: None 
-        register: detach_vol 
+#        register: detach_vol 
 
     - name: Creating a Volume from a snapshot 
       ec2_vol: 
@@ -17,7 +17,7 @@
         region: us-east-1a
         volume_size: 60 
         instance: i-0080a6f836de932ba
-        register: ec2_vol 
+#        register: ec2_vol 
         tags: attach 
 
     - name: Attach the Created volume to an instance 
