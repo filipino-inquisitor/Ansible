@@ -21,8 +21,7 @@
         snapshot: snap-0533d3646be12fb57
         region: us-east-1
         volume_size: 60 
-        instance: i-0080a6f836de932ba
-#        register: ec2_vol 
+        register: new_ec2_vol 
 #        tags: attach 
 
     - name: Attach the Created volume to an instance 
@@ -30,7 +29,7 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         instance: i-0080a6f836de932ba
-        id: vol-07de2f7eeede26afd
+        id: new_ec2_vol
         device_name: /dev/sda1 
         delete_on_termination: yes
     
