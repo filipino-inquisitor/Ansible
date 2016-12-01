@@ -21,7 +21,7 @@
         snapshot: snap-0533d3646be12fb57
         region: us-east-1
         volume_size: 60
-        register: ec2_vol 
+      register: ec2_vol 
 #        tags: attach 
 
     - name: Attach the Created volume to an instance 
