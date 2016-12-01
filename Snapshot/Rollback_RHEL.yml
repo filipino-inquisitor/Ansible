@@ -20,6 +20,7 @@
         aws_access_key: "{{akey}}"
         snapshot: snap-0533d3646be12fb57
         region: us-east-1
+        instance: i-0080a6f836de932ba
         volume_size: 60
       register: ec2_vol 
 #        tags: attach 
