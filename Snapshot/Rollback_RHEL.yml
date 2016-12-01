@@ -12,7 +12,8 @@
         region: us-east-1
         instance_ids: i-0080a6f836de932ba
         state: stopped    
-   
+   - name: Wait for stopped
+     wait_for: state:stopped
    - name: Detach the old volume
      ec2_vol:
         aws_secret_key: "{{pkey}}"
