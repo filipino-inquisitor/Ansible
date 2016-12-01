@@ -23,7 +23,7 @@
         volume_size: 60 
         instance: i-0080a6f836de932ba
 #        register: ec2_vol 
-        tags: attach 
+#        tags: attach 
 
     - name: Attach the Created volume to an instance 
       ec2_vol: 
