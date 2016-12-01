@@ -6,7 +6,7 @@
   tasks:
     - name: Detach the old volume 
       ec2_vol: 
-        region: us-east-1a 
+        region: us-east-1
         id: vol-07de2f7eeede26afd
         instance: None 
 #        register: detach_vol 
@@ -14,7 +14,7 @@
     - name: Creating a Volume from a snapshot 
       ec2_vol: 
         snapshot: snap-0533d3646be12fb57
-        region: us-east-1a
+        region: us-east-1
         volume_size: 60 
         instance: i-0080a6f836de932ba
 #        register: ec2_vol 
