@@ -5,16 +5,24 @@
     
   tasks:
     
-#    - name: Detach the old volume 
-#      ec2_vol:
-#        aws_secret_key: "{{pkey}}"
-#        aws_access_key: "{{akey}}"
-#        region: us-east-1
-#        id: vol-07de2f7eeede26afd
-#        instance: None 
+   - name: Stop the instance
+      ec2:
+        aws_secret_key: "{{pkey}}"
+        aws_access_key: "{{akey}}"
+        region: us-east-1
+        instance_ids: i-0080a6f836de932ba
+        state: stopped    
+   
+   - name: Detach the old volume
+      ec2_vol:
+        aws_secret_key: "{{pkey}}"
+        aws_access_key: "{{akey}}"
+        region: us-east-1
+        id: vol-07de2f7eeede26afd
+        instance: None 
 #        register: detach_vol 
 
-    - name: Creating a Volume from a snapshot 
+   - name: Creating a Volume from a snapshot 
       ec2_vol:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
@@ -22,6 +30,7 @@
         region: us-east-1
         volume_type: gp2
         instance: i-0080a6f836de932ba
+        device_name: /dev/sda1
 #        volume_size: 60
       register: ec2_vol 
 #        tags: attach 
@@ -33,13 +42,12 @@
         region: us-east-1
         instance: i-0080a6f836de932ba
         id: "{{ ec2_vol.volume_id }}"
-        device_name: /dev/sda1 
-        delete_on_termination: yes
+        device_name: /dev/sda1
     
-    - name: Stop the instance
+    - name: Start the instance
       ec2:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
         instance_ids: i-0080a6f836de932ba
-        state: stopped
+        state: running     
