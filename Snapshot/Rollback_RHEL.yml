@@ -6,7 +6,7 @@
   tasks:
     
    - name: Stop the instance
-      ec2:
+     ec2:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
@@ -14,7 +14,7 @@
         state: stopped    
    
    - name: Detach the old volume
-      ec2_vol:
+     ec2_vol:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
@@ -23,7 +23,7 @@
 #        register: detach_vol 
 
    - name: Creating a Volume from a snapshot 
-      ec2_vol:
+     ec2_vol:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         snapshot: snap-0533d3646be12fb57
