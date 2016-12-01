@@ -1,24 +1,29 @@
 ---
 
-    - name: Detach the old volume 
-        ec2_vol: 
-          region: us-east-1a 
-          id: vol-07de2f7eeede26afd
-          instance: None 
-          register: detach_vol 
+- name: Rollback to a previous snapshot
+    hosts: all
+    become: yes
+    
+    tasks:
+        - name: Detach the old volume 
+            ec2_vol: 
+              region: us-east-1a 
+              id: vol-07de2f7eeede26afd
+              instance: None 
+              register: detach_vol 
 
-    - name: Creating a Volume from a snapshot 
-        ec2_vol: 
-          snapshot: snap-05dd715a01fdbcb86 
-          region: us-east-1a
-          volume_size: 60 
-          instance: i-0080a6f836de932ba
-          register: ec2_vol 
-          tags: attach 
+        - name: Creating a Volume from a snapshot 
+            ec2_vol: 
+              snapshot: snap-05dd715a01fdbcb86 
+              region: us-east-1a
+              volume_size: 60 
+              instance: i-0080a6f836de932ba
+              register: ec2_vol 
+              tags: attach 
 
-    - name: Attach the Created volume to an instance 
-        ec2_vol: 
-          instance: i-0080a6f836de932ba
-          id: vol-07de2f7eeede26afd
-          device_name: /dev/sda1 
-          delete_on_termination: yes
+        - name: Attach the Created volume to an instance 
+            ec2_vol: 
+              instance: i-0080a6f836de932ba
+              id: vol-07de2f7eeede26afd
+              device_name: /dev/sda1 
+              delete_on_termination: yes
