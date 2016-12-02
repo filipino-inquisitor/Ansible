@@ -3,8 +3,9 @@
   hosts: all
 
   tasks:
-    - name: Install BOTO
-      pip: name=boto
+    - name: Install pip
+      win_chocolatey:
+        name: pip
 
     - name: Snapshot the instance.
       ec2_snapshot:
