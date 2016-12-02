@@ -3,6 +3,10 @@
   hosts: all
 
   tasks:
+    - name: Install python
+      win_chocolatey:
+        name: python
+        
     - name: Install pip
       win_chocolatey:
         name: pip
