@@ -3,9 +3,14 @@
   hosts: all
 
   tasks:
-    - name: Install python
+    - name: unInstall python
       win_chocolatey:
         name: python
+        state: absent
+        
+    - name: Install python 2.0
+      win_chocolatey:
+        name: python2
 
     - name: Snapshot the instance.
       ec2_snapshot:
