@@ -16,4 +16,5 @@
         aws_access_key: "{{akey}}"
         region: us-east-1
         volume_id: vol-0fd39a57fccae6e2a
+        profile: no
         description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
