@@ -26,7 +26,7 @@
      ec2_vol:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
-        snapshot: snap-0533d3646be12fb57
+        snapshot: snap-0c0b0beeb60ef043d
         region: us-east-1
         volume_type: gp2
         instance: i-0080a6f836de932ba
