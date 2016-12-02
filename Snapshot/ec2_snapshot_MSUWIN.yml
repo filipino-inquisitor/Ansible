@@ -6,10 +6,6 @@
     - name: Install python
       win_chocolatey:
         name: python
-        
-    - name: Install pip
-      win_chocolatey:
-        name: pip
 
     - name: Snapshot the instance.
       ec2_snapshot:
