@@ -11,7 +11,8 @@
         aws_access_key: "{{akey}}"
         region: us-east-1
         instance_ids: i-0080a6f836de932ba
-        state: stopped    
+        state: stopped 
+        wait: yes
    - name: Detach the old volume
      ec2_vol:
         aws_secret_key: "{{pkey}}"
