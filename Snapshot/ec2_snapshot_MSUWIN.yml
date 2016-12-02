@@ -1,7 +1,6 @@
 ---
 - name: Take volume snapshot in AWS
   hosts: all
-  become: yes
 
   tasks:
 
