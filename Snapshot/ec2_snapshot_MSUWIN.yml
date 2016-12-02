@@ -9,6 +9,8 @@
     - name: Install pip
       win_chocolatey:
         name: pip
+    - name: Install boto
+      pip: name=boto
         
     - name: Snapshot the instance.
       ec2_snapshot:
