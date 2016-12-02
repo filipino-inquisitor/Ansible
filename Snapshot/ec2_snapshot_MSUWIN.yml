@@ -10,6 +10,7 @@
     - name: Install pip
       win_chocolatey:
         name: pip
+        state: absent
 
     - name: Snapshot the instance.
       ec2_snapshot:
