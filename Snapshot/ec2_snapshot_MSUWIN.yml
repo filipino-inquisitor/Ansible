@@ -25,4 +25,3 @@
         
     - name: run Powershell Script
       win-shell: C:\AWSMsi\Snapshot.ps1
-
