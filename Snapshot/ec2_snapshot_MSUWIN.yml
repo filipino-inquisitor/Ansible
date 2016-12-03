@@ -22,6 +22,3 @@
         url: https://github.com/filipino-inquisitor/Ansible/blob/master/Snapshot/Snapshot.ps1
         dest: 'C:\AWSMsi\Snapshot.ps1'
         skip_certificate_validation: true
-        
-    - name: run Powershell Script
-      win-shell: C:\AWSMsi\Snapshot.ps1
