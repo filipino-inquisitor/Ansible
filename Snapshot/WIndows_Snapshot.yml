@@ -1,8 +1,7 @@
 ---
 - name: Windows Snapshot
   hosts: all
-  gather_facts: false
  
   tasks:
     - name: Run Powershell Script
-      win_shell: C:\AWSMsi\Snapshot.ps1 -access "{{akey}}" -secret "{{pkey}}" >> c:\AWSMsi\somelog.txt
+      win_shell: C:\AWSMsi\Snapshot.ps1 -access "{{akey}}" -secret "{{pkey}}"
