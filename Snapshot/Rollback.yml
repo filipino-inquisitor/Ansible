@@ -1,6 +1,6 @@
 ---
 - name: Rollback to a previous snapshot
-  hosts: linux2
+  hosts: all
   become: yes
     
   tasks:
@@ -10,7 +10,7 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
-        instance_ids: i-0080a6f836de932ba
+        instance_ids: "{{instance_id}}
         state: stopped 
         wait: yes
    - name: Detach the old volume
@@ -18,7 +18,7 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
-        id: vol-07de2f7eeede26afd
+        id: "{{volume_id}}"
         instance: None 
 #        register: detach_vol 
 
@@ -26,10 +26,10 @@
      ec2_vol:
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
-        snapshot: snap-0c0b0beeb60ef043d
+        snapshot: "{{snapshot_id}}"
         region: us-east-1
         volume_type: gp2
-        instance: i-0080a6f836de932ba
+        instance: "{{instance_id}}"
         device_name: /dev/sda1
 #        volume_size: 60
      register: ec2_vol 
@@ -40,7 +40,7 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
-        instance: i-0080a6f836de932ba
+        instance: "{{instance_id}}"
         id: "{{ ec2_vol.volume_id }}"
         device_name: /dev/sda1
     
@@ -49,5 +49,5 @@
         aws_secret_key: "{{pkey}}"
         aws_access_key: "{{akey}}"
         region: us-east-1
-        instance_ids: i-0080a6f836de932ba
+        instance: "{{instance_id}}"
         state: running     
