@@ -1,6 +1,6 @@
 ---
 - name: Rollback to a previous snapshot
-  hosts: localhost
+  hosts: "localhost"
   become: yes
     
   tasks:
