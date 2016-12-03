@@ -9,8 +9,6 @@
     - name: Install pip
       win_chocolatey:
         name: pip
-    - name: win-shell test
-      win-shell: python
       
     - name: Snapshot the instance.
       ec2_snapshot:
