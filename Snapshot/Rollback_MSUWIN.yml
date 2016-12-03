@@ -1,6 +1,6 @@
 ---
 - name: Rollback to a previous snapshot
-  hosts: linux2
+  hosts: all
   become: yes
     
   tasks:
