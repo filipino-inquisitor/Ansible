@@ -13,10 +13,15 @@
       win_file: path=C:\AWSMsi\ state=directory
       
     - name: Pull MSI file
-        win_get_url: 
-          url: http://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi
-          dest: 'C:\AWSMsi\AWSToolsAndSDKForNet.msi'
-          skip_certificate_validation: true
+      win_get_url: 
+        url: http://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi
+        dest: 'C:\AWSMsi\AWSToolsAndSDKForNet.msi'
+        skip_certificate_validation: true
+          
+    - name: Runs MSI file
+      win_msi:
+        path: C:\AWSMsi\AWSToolsAndSDKForNet.msi
+        wait: true
           
     - name: Snapshot the instance.
       ec2_snapshot:
