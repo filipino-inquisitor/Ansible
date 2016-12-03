@@ -1,5 +1,5 @@
 ---
-- name: Window's Snapshot
+- name: Windows Snapshot
   hosts: all
  
   tasks:
