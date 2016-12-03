@@ -3,12 +3,6 @@
   hosts: all
 
   tasks:        
-    - name: Install python 2.0
-      win_chocolatey:
-        name: python2
-    - name: Install pip
-      win_chocolatey:
-        name: pip
     - name: Create Directory
       win_file: path=C:\AWSMsi\ state=directory
       
