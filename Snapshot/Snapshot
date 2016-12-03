@@ -1,0 +1,14 @@
+---
+- name: Take volume snapshot in AWS
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Snapshot the instance.
+      ec2_snapshot:
+        aws_secret_key: "{{pkey}}"
+        aws_access_key: "{{akey}}"
+        region: us-east-1
+        volume_id: "{{volume_id}}"
+        description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
+        snapshot_tags: Name: "{{device_name}}"
