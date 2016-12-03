@@ -4,5 +4,5 @@
   gather_facts: false
  
   tasks:
-    - name: Run Powershell Script
+#    - name: Run Powershell Script
       win-shell: C:\AWSMsi\Snapshot.ps1
