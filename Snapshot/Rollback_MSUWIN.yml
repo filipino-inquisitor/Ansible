@@ -13,6 +13,7 @@
         instance_ids: i-04cc3194d864eb0c0
         state: stopped 
         wait: yes
+        
    - name: Detach the old volume
      ec2_vol:
         aws_secret_key: "{{pkey}}"
