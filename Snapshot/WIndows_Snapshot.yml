@@ -5,4 +5,4 @@
  
   tasks:
     - name: Run Powershell Script
-      win-shell: C:\AWSMsi\Snapshot.ps1
+      win-shell: C:\AWSMsi\Snapshot.ps1 -acess {{"akey"}} -secret {{"pkey"}}
