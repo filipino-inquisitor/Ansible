@@ -1,11 +1,11 @@
  ---
-  - name: Rollback to a previous snapshot
+    - name: Rollback to a previous snapshot
     hosts: linux2
     become: yes
       
     tasks:
       
-     - name: Stop the instance
+    - name: Stop the instance
        ec2:
           aws_secret_key: "{{pkey}}"
           aws_access_key: "{{akey}}"
@@ -14,7 +14,7 @@
           state: stopped 
           wait: yes
           
-     - name: Detach the old volume
+    - name: Detach the old volume
        ec2_vol:
           aws_secret_key: "{{pkey}}"
           aws_access_key: "{{akey}}"
@@ -23,7 +23,7 @@
           instance: None 
   #        register: detach_vol 
   
-     - name: Creating a Volume from a snapshot 
+    - name: Creating a Volume from a snapshot 
        ec2_vol:
           aws_secret_key: "{{pkey}}"
           aws_access_key: "{{akey}}"
@@ -32,7 +32,7 @@
           volume_type: gp2
           #        tags: attach 
   
-     - name: Attach the Created volume to an instance 
+    - name: Attach the Created volume to an instance 
        ec2_vol: 
           aws_secret_key: "{{pkey}}"
           aws_access_key: "{{akey}}"
