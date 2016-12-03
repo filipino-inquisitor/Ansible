@@ -1,7 +1,8 @@
 ---
 - name: Windows Snapshot
   hosts: all
+  gather_facts: false
  
   tasks:
-    - name: Powershell Script
+    - name: Run Powershell Script
       win-shell: C:\AWSMsi\Snapshot.ps1
