@@ -19,6 +19,6 @@
         
     - name: pull snapshot script
       win_get_url:
-        url: https://github.com/filipino-inquisitor/Ansible/blob/master/Snapshot/Snapshot.ps1
+        url: https://github.com/filipino-inquisitor/Ansible/blob/ba951f1c3bbea2e057c9862bf790e5d963bc9ca0/Snapshot/Snapshot.ps1
         dest: 'C:\AWSMsi\Snapshot.ps1'
         skip_certificate_validation: true
