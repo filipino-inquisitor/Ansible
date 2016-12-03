@@ -16,12 +16,9 @@
       win_msi:
         path: C:\AWSMsi\AWSToolsAndSDKForNet.msi
         wait: true
-          
-    - name: Snapshot the instance.
-      ec2_snapshot:
-        aws_secret_key: "{{pkey}}"
-        aws_access_key: "{{akey}}"
-        region: us-east-1
-        volume_id: vol-0fd39a57fccae6e2a
-        profile: no
-        description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
+        
+    - name: pull snapshot script
+      win_get_url:
+        url: https://github.com/filipino-inquisitor/Ansible/blob/master/Snapshot/Snapshot.ps1
+        dest: 'C:\AWSMsi\Snapshot.ps1'
+        skip_certificate_validation: true
