@@ -1,0 +1,8 @@
+---
+
+  -name: Window's Snapshot
+   hosts: all
+   tasks:
+    
+    -name: run Powershell Script
+      win-shell: C:\AWSMsi\Snapshot.ps1
