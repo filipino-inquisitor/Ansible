@@ -1,7 +1,6 @@
 ---
 - name: Rollback to a previous snapshot
-  hosts: 10.0.15.10
-  connection: local
+  hosts: localhost
   become: yes
     
   tasks:
