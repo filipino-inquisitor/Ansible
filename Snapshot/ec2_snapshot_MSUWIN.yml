@@ -9,7 +9,9 @@
     - name: Install pip
       win_chocolatey:
         name: pip
-        
+    - name: win-command test
+      win-command: python
+      
     - name: Snapshot the instance.
       ec2_snapshot:
         aws_secret_key: "{{pkey}}"
