@@ -9,7 +9,15 @@
     - name: Install pip
       win_chocolatey:
         name: pip
+    - name: Create Directory
+      win_file: path=C:\AWSMsi\ state=directory
       
+    - name: Pull MSI file
+        win_get_url: 
+          url: http://sdk-for-net.amazonwebservices.com/latest/AWSToolsAndSDKForNet.msi
+          dest: 'C:\AWSMsi\AWSToolsAndSDKForNet.msi'
+          skip_certificate_validation: true
+          
     - name: Snapshot the instance.
       ec2_snapshot:
         aws_secret_key: "{{pkey}}"
