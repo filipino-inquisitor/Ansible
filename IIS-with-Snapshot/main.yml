@@ -3,4 +3,5 @@
   # These will run in all webservers
 
   - include: git_code.yml
+  - include: enable-iis.yml
   - include: Snapshot.yml
