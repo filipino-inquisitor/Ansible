@@ -11,4 +11,4 @@
         region: us-east-1
         volume_id: "{{volume_id}}"
         description: awsbackup snapshot taken on {{ ansible_date_time.date }} at {{ ansible_date_time.time }}
-        snapshot_tags: Name: "{{device_name}}"
+#        snapshot_tags: Name: "{{device_name}}"
