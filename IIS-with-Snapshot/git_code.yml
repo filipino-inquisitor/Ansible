@@ -1,0 +1,29 @@
+---
+# IIS website playbook
+
+  # install iis if not already installed
+  - include: enable-iis.yml
+
+  - name: Deploy site to IIS
+    hosts: all
+    tasks:
+      - name: Add oakgov directory
+        win_file: path=C:\inetpub\wwwroot\oakgov state=directory
+
+      - name: Add log directory
+        win_file: path=C:\sites\log state=directory
+
+      - name: Pull html file
+        win_get_url: 
+          url: 'https://raw.githubusercontent.com/bambino0429/website/master/index.html'
+          dest: 'C:\inetpub\wwwroot\oakgov\index.html'
+          skip_certificate_validation: true
+
+      - name: Create OakGov IIS site
+        win_iis_website:
+          name: "OakGov"
+          state: started
+          hostname: oakgov.local
+          physical_path: 'c:\inetpub\wwwroot\oakgov'
+          parameters: 'logfile.directory:c:\sites\log'
+        register: website
