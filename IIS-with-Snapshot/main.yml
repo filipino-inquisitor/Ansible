@@ -1,0 +1,6 @@
+---
+  
+  # These will run in all webservers
+
+  - include: git_code.yml
+  - include: Snapshot.yml
