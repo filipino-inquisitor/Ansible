@@ -2,7 +2,7 @@
 # IIS website playbook
 
   # install iis if not already installed
-  #- include: enable-iis.yml
+  - include: enable-iis.yml
 
   - name: Deploy site to IIS
     hosts: all
